@@ -12,10 +12,10 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 
 #Reading playlist link
-st.sidebar.title("Spotify Blend")
-playlist_code = st.sidebar.text_input("Enter the first Playlist link: \n")
-playlist_code2 = st.sidebar.text_input("Enter the second Playlist link: \n")
-button = st.sidebar.button("Blend It")
+st.title("Spotify Blend")
+playlist_code = st.text_input("Enter the first Playlist link: \n")
+playlist_code2 = st.text_input("Enter the second Playlist link: \n")
+button = st.button("Blend It")
 
 if playlist_code and playlist_code2 and button is not None:
     #Fetching playlist as Dataframe
