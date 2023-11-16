@@ -1,18 +1,15 @@
+from dotenv import load_dotenv
+import os
 import fetch_data
 import preprocessor
 import logic
 import streamlit as st
 
 #reading clint id and secret
-with open('client_credentials.txt') as f:
-    data = f.read()
-    credentials = []
-for line in data:
-    value = line.split(':')[1]
-    credentials.append(value)
+load_dotenv()
 
-client_id = credentials[0]
-client_secret = credentials[1]
+client_id = os.getenv("CLIENT_ID")
+client_secret = os.getenv("CLIENT_SECRET")
 
 #Reading playlist link
 st.sidebar.title("Spotify Blend")
