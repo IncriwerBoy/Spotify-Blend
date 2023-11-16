@@ -2,3 +2,4 @@ python-dotenv
 streamlit
 pandas
 spotipy
+tabulate

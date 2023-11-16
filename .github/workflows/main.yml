@@ -26,9 +26,14 @@ jobs:
         run: |
           python -m pytest
 
-      - name: Deploy
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          - name: Use CLIENT_ID from GitHub Secrets
+          run: |
+            echo ${{ secrets.CLIENT_ID }}  # Access the secret
+  
+
+            - name: Use CLIENT_ID from GitHub Secrets
+            run: |
+              echo ${{ secrets.CLIENT_ID }}  # Access the secret
+    
         run: |
           deploy_script.sh
