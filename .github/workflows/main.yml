@@ -11,23 +11,23 @@ jobs:
 
         steps:
             - name: Checkout Repository
-            uses: actions/checkout@v2
+              uses: actions/checkout@v2
 
             - name: Set up Python
-            uses: actions/setup-python@v2
-            with:
+              uses: actions/setup-python@v2
+              with:
                 python-version: 3.7
 
             - name: Install Dependencies
-            run: |
+              run: |
                 pip install -r requirements.txt
 
             - name: Run Tests
-            run: |
+              run: |
                 python -m pytest
 
             - name: Deploy
-            env:
+              env:
                 CLIENT_ID: ${{ secrets.CLIENT_ID }}
                 CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
             run: |
