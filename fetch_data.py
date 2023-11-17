@@ -53,13 +53,14 @@ def fetch(client_id, client_secret, playlist_code, playlist_code2):
         song = items[i-offset]['track']['name']
         album = items[i-offset]['track']['album']['name']
         release_date = items[i-offset]['track']['album']['release_date']
-        release_date = format_date(release_date)
-        artists = [k['name'] for k in items[i-offset]['track']['artists']]
-        artists = ','.join(artists)
-        album_list.append(album)
-        song_list.append(song)
-        release_date_list.append(release_date)
-        artists_list.append(artists)
+        if not release_date.startswith('0000'):
+            release_date = format_date(release_date)
+            artists = [k['name'] for k in items[i-offset]['track']['artists']]
+            artists = ','.join(artists)
+            album_list.append(album)
+            song_list.append(song)
+            release_date_list.append(release_date)
+            artists_list.append(artists)
 
         if (i+1)%100 == 0:
             tracks = sp.next(tracks)
@@ -82,13 +83,14 @@ def fetch(client_id, client_secret, playlist_code, playlist_code2):
         song = items[i-offset]['track']['name']
         album = items[i-offset]['track']['album']['name']
         release_date = items[i-offset]['track']['album']['release_date']
-        release_date = format_date(release_date)
-        artists = [k['name'] for k in items[i-offset]['track']['artists']]
-        artists = ','.join(artists)
-        album_list2.append(album)
-        song_list2.append(song)
-        release_date_list2.append(release_date)
-        artists_list2.append(artists)
+        if not release_date.startswith('0000'):
+            release_date = format_date(release_date)
+            artists = [k['name'] for k in items[i-offset]['track']['artists']]
+            artists = ','.join(artists)
+            album_list2.append(album)
+            song_list2.append(song)
+            release_date_list2.append(release_date)
+            artists_list2.append(artists)
 
         if (i+1)%100 == 0:
             tracks = sp.next(tracks)
